@@ -5,7 +5,7 @@ $(document).ready(function(){
         var emailid = $('#emailid').val();
         var contact = $('#phone-no').val();
         $("#first-name, #last-name, #emailid, #phone-no").each(function() {
-            if ($(this).val() == '') {
+            if ($.trim($(this).val()) == '') {
                alert('Fields cannot be empty');
                return false;
             }
