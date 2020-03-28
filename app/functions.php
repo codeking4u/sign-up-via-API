@@ -6,13 +6,35 @@ if(isset($_REQUEST['action']) && function_exists($_REQUEST['action'])) {
     call_user_func($action);
 }
 function submit_form(){
+    $msg="";
     $data = $_REQUEST;
-    $hexaval_email = bin2hex($data['emailid']); 
-    $data['ID'] = $hexaval_email;
+    $email = $data['emailid'];
+    $firstname = $data['first-name'];
     
+    /* server side validation */
+    if(trim($email)=="" || trim($firstname)==""){
+        $msg="Email ID and firstname is mandatory";
+        echo json_encode(array('response'=>0,'success'=>false,'message'=>$msg)); exit;
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $msg = "Invalid email format";
+        echo json_encode(array('response'=>0,'success'=>false,'message'=>$msg)); exit;
+    }
+
+    if(trim($email)=="" || trim($firstname)==""){
+        $msg="Email ID and firstname is mandatory";
+        echo json_encode(array('response'=>$reponse,'success'=>false,'message'=>$msg)); exit;
+    }
+    /* server side validation */
+
+    $hexaval_email = bin2hex($email); 
+    $data['ID'] = $hexaval_email;
+
+
     $myCurl = new Curl();
     $myCurl->seturl('https://webhook.site/26973c39-c282-42ea-86c0-457ae8e53572');
-    echo $reponse = $myCurl->call($data);
+    $reponse = $myCurl->call($data);
+    echo json_encode(array('response'=>$reponse,'success'=>true)); exit;
 }
 
 

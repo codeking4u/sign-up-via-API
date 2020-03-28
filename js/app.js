@@ -10,7 +10,7 @@ $(document).ready(function(){
                return false;
             }
         });
-        console.log(isEmail(emailid));
+        
         if(!isEmail(emailid)){
             alert('Email is not valid');
             return false;
