@@ -15,7 +15,17 @@ function ajax_call(fn_name){
         url       : './app/functions.php?action='+fn_name,
         data      : data,
         success   : function(res) {
-            alert(res);
+            if(res.success){
+                $(".sucess").fadeIn();
+                setTimeout(function(){$(".sucess").fadeOut()},6000);
+            }
         }
     });
+}
+
+function showError(msg){
+    $('.error').append("<div>"+msg+"</div>");
+    $(".error").fadeIn();
+    setTimeout(function(){$(".error").fadeOut().html("")},6000);
+
 }

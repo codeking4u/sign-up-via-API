@@ -6,19 +6,19 @@ $(document).ready(function(){
         var contact = $('#phone-no').val();
         $("#first-name, #emailid").each(function() {
             if ($.trim($(this).val()) == '') {
-               alert('Fields cannot be empty');
+               showError('First name and EmailId cannot be empty');
                return false;
             }
         });
         
         if(!isEmail(emailid)){
-            alert('Email is not valid');
+            showError('Email is not valid');
             return false;
         }
         if(!isPhone(contact)){
-            alert('Phone number is not valid');
+            showError('Phone number is not valid');
             return false;
         }
-        ajax_call('submit_form')
+        ajax_call('submit_form');
     });
 });
