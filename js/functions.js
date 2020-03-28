@@ -9,6 +9,7 @@ function isPhone(contact) {
 
 function ajax_call(fn_name){
     var data = $('#signup-form').serialize();
+    console.log(data);
     $.ajax({ 
         type      : 'POST',
         url       : './app/functions.php?action='+fn_name,
