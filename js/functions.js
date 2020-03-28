@@ -16,16 +16,18 @@ function ajax_call(fn_name){
         success   : function(res) {
             var res = $.parseJSON(res);
             if(res.success==true){
-                
+                $(".error").fadeOut().html("");
                 $(".sucess").fadeIn();
                 setTimeout(function(){$(".sucess").fadeOut()},6000);
+            }else{
+                showError(res.message);
             }
         }
     });
 }
 
 function showError(msg){
-    $('.error').append("<div>"+msg+"</div>");
+    $('.error').html("<div>"+msg+"</div>");
     $(".error").fadeIn();
     setTimeout(function(){$(".error").fadeOut().html("")},6000);
 
