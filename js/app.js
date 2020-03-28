@@ -4,7 +4,7 @@ $(document).ready(function(){
 
         var emailid = $('#emailid').val();
         var contact = $('#phone-no').val();
-        $("#first-name, #last-name, #emailid, #phone-no").each(function() {
+        $("#first-name, #emailid").each(function() {
             if ($.trim($(this).val()) == '') {
                alert('Fields cannot be empty');
                return false;
@@ -19,6 +19,6 @@ $(document).ready(function(){
             alert('Phone number is not valid');
             return false;
         }
-        alert('Submitted');
+        ajax_call('submit_form')
     });
 });
