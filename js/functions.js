@@ -9,13 +9,14 @@ function isPhone(contact) {
 
 function ajax_call(fn_name){
     var data = $('#signup-form').serialize();
-    console.log(data);
     $.ajax({ 
         type      : 'POST',
         url       : './app/functions.php?action='+fn_name,
         data      : data,
         success   : function(res) {
-            if(res.success){
+            var res = $.parseJSON(res);
+            if(res.success==true){
+                
                 $(".sucess").fadeIn();
                 setTimeout(function(){$(".sucess").fadeOut()},6000);
             }
