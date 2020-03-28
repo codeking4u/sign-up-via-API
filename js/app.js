@@ -1,15 +1,20 @@
 $(document).ready(function(){
     $('#submit').on('click',function(e){
         e.preventDefault();
-
+        var emptyfields;
         var emailid = $('#emailid').val();
         var contact = $('#phone-no').val();
         $("#first-name, #emailid").each(function() {
             if ($.trim($(this).val()) == '') {
-               showError('First name and EmailId cannot be empty');
+               emptyfields =1;
                return false;
             }
         });
+        if(emptyfields){
+            showError('First name and EmailId cannot be empty');
+            return false;
+        }
+        
         
         if(!isEmail(emailid)){
             showError('Email is not valid');
