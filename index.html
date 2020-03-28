@@ -3,41 +3,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./funtions.js" async></script>
+    <script src="./app.js" async></script>
 </head>
 <body>
     <div class="container">
-        <form class="sighup-wrapper">
+        <form>
             <div class="first-name">
                 <label for="first-name">
                     First Name
                 </label>
-                <input type="text" id="first-name">
+                <input type="text" id="first-name" placeholder="Enter first name"   />
             </div>
 
             <div class="last-name">
                 <label for="last-name">
                     Last Name
                 </label>
-                <input type="text" id="last-name">
+                <input type="text" id="last-name" placeholder="Enter last name"/>
             </div>
 
             <div class="emailid">
                 <label for="emailid">
                     Email ID
                 </label>
-                <input type="text" id="emailid">
+                <input type="text" id="emailid" placeholder="Enter your personal emailid"/>
             </div>
 
             <div class="phone-no">
                 <label for="phone-no">
                     Phone no.
                 </label>
-                <input type="text" id="phone-no">
+                <input type="text" id="phone-no" placeholder="Please enter mobile"/>
             </div>
 
-            <button id="submit">
-                Signup
-            </button>
+            <button id="submit" type="submit">Signup</button>
         </form>
     </div>
 </body>
